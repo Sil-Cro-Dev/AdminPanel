@@ -1,0 +1,15 @@
+<mat-card fxFlex="25" fxFlex.lt-lg="40" fxFlex.lt-md="100">
+  <mat-card-header  >
+    <h1>Rubrica</h1>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list *ngFor="let element of data" >
+      <div fxLayout = "row">
+      <mat-list-item>{{element.cognome}}</mat-list-item>
+      <mat-list-item>{{element.nome}}</mat-list-item>
+      <mat-list-item>{{element.numero}}</mat-list-item>
+      </div>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
