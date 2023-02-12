@@ -1,3 +1,13 @@
-<app-list >
+<!-- app toolbar è la toolbar in alto-->
+<app-toolbar [sidenavOpened]="sidenav.opened" (sidenavToggle)="sidenav.toggle()"></app-toolbar>
 
-</app-list>
+<mat-sidenav-container>
+  <mat-sidenav class="w15 p8" #sidenav="matSidenav" mode="side" opened>
+    <app-sidebar [sidenavOpened]="sidenav.opened" (sidenavToggle)="sidenav.toggle()"></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="p8">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

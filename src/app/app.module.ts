@@ -11,24 +11,37 @@ import {MatIconModule} from "@angular/material/icon";
 import {ListComponent} from './common/components/list/list.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
-import {CdkVirtualForOf} from "@angular/cdk/scrolling";
+import {ToolbarComponent} from './common/components/toolbar/toolbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { SidebarComponent } from './common/components/sidebar/sidebar.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    ToolbarComponent,
+    SidebarComponent,
+    DashboardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    NoopAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatIconModule,
-    MatCardModule,
-    MatListModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        NoopAnimationsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatIconModule,
+        MatCardModule,
+        MatListModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatInputModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

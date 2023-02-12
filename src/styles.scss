@@ -1,3 +1,15 @@
+//TODO implementare funzionalita per telefoni
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+
 .w5 {
   width: 5%;
 }
@@ -16,4 +28,8 @@
 
 .w25 {
   width: 25%;
+}
+
+.p8{
+  padding: 8px;
 }

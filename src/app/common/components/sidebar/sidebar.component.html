@@ -1,0 +1,12 @@
+<ng-container>
+  <mat-list *ngFor="let page of pages">
+    <div fxLayout="row" fxLayoutAlign="space-evenly end">
+      <button mat-button class="menu-button" routerLink="{{page.route}}">
+        <mat-icon>{{page.icon}}</mat-icon>
+        <mat-label>{{page.title}}</mat-label>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list>
+</ng-container>
+

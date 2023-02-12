@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ELEMENT_DATA} from "../../../../assets/Mock/rubrica";
 
 @Component({

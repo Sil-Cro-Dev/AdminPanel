@@ -1,0 +1,25 @@
+//TODO modificare bene il css generale di toolbar & sidebar
+
+mat-sidenav {
+  text-align: left;
+}
+
+mat-sidenav-container {
+ height: 100%;
+}
+
+//@media screen and (max-width: 1400px) {
+//
+//  .content {
+//    height: calc(100% - 98px);
+//    box-shadow: none;
+//    margin-left: 16px;
+//    overflow: visible;
+//  }
+//
+//  mat-sidenav-container {
+//    height: calc(100% - 65px);
+//  }
+//
+//
+//}
