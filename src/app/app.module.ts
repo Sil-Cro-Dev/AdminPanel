@@ -18,7 +18,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {SidebarComponent} from './common/components/sidebar/sidebar.component';
 import {DashboardComponent} from './features/dashboard/dashboard.component';
 import {MatInputModule} from "@angular/material/input";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
