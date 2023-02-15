@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {RubricaService} from "../../../services/rubrica.service";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,21 +6,19 @@ import {RubricaService} from "../../../services/rubrica.service";
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  data: any
+  @Input() title!: string;
+  @Input() columnToShow!: string[];
+  @Input() dataSource: any;
+  @Input() hasImage: string | undefined;
 
-  constructor(private rubricaService: RubricaService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.getFolks()
   }
 
-  getFolks() {
-    this.rubricaService.getFolks().subscribe(res => this.data = res)
-  }
-
-  addFolk() {
-    this.rubricaService.addFolks('test').subscribe();
-    this.ngOnInit();
+  addSomething() {
+    return console.log("ho cliccato");
   }
 }
+

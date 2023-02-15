@@ -1,1 +1,7 @@
-<app-list fxFlex="30" fxFlex.lt-lg="40" fxFlex.lt-md="100"></app-list>
+<app-list
+  fxFlex="30" fxFlex.lt-lg="40" fxFlex.lt-md="100"
+  [title]="'Rubrica'"
+  [columnToShow]="['cognome', 'nome', 'numero']"
+  [dataSource]="dataSource"
+  [hasImage]="'avatar'"
+></app-list>

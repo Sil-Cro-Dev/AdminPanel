@@ -1,18 +1,21 @@
 <mat-card>
-  <div class="card-list">
+  <div>
     <mat-card-header>
-      <h1>Rubrica</h1>
+      <h1>{{title}}</h1>
     </mat-card-header>
 
-    <mat-card-content>
-      <mat-list *ngFor="let element of data">
+    <mat-card-content class="card-list">
+      <div fxLayout="row">
+        <mat-list-item *ngIf="hasImage">{{hasImage}}</mat-list-item>
+        <mat-list-item *ngFor="let column of columnToShow">{{column}}</mat-list-item>
+      </div>
+      <mat-divider class="divider-header"></mat-divider>
+      <mat-list *ngFor="let element of dataSource">
         <div fxLayout="row">
-          <mat-list-item>
-            <img mat-card-avatar src="{{element.avatar}}">
+          <mat-list-item *ngIf="hasImage">
+            <img mat-card-avatar src="{{element[hasImage]}}" alt="">
           </mat-list-item>
-          <mat-list-item>{{element.cognome}}</mat-list-item>
-          <mat-list-item>{{element.nome}}</mat-list-item>
-          <mat-list-item>{{element.numero}}</mat-list-item>
+          <mat-list-item *ngFor="let column of columnToShow">{{element[column]}}</mat-list-item>
         </div>
         <mat-divider></mat-divider>
       </mat-list>
@@ -20,9 +23,10 @@
   </div>
 
   <mat-card-actions>
-    <button mat-button (click)="addFolk()"> Aggiungi</button>
+<!--    <button mat-button (click)="addSomething()"> Aggiungi</button>-->
   </mat-card-actions>
   <mat-card-footer>
     <mat-progress-bar mode="determinate" value="75" color="accent"></mat-progress-bar>
   </mat-card-footer>
 </mat-card>
+

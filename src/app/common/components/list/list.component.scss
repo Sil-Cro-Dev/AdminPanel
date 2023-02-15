@@ -2,6 +2,10 @@ mat-card {
   border: solid 1px rgba(255, 255, 255, .12);
 }
 
+mat-card-header {
+  background: #303030;
+}
+
 mat-progress-bar {
   height: 3px;
   opacity: 0.5;
@@ -10,29 +14,29 @@ mat-progress-bar {
 .card-list {
   height: 350px;
   overflow: scroll;
-  margin: 8px;
   overflow-x: hidden;
 }
 
-.card-list::-webkit-scrollbar-track {
-  background-color: #69F0AE20;
-  border-radius: 2px;
-  border: solid 1px rgba(255, 255, 255, .12);
+.card-list::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 1px;
+  margin: 8px 2px 8px 0;
 }
 
-.card-list::-webkit-scrollbar {
-  width: 6px;
-  background-color: #69F0AE20;
-  border-radius: 2px;
+.card-list::-webkit-scrollbar-track {
+  border-radius: 1px;
+  margin: 8px 0 8px 0;
 }
 
 .card-list::-webkit-scrollbar-thumb {
   background-color: #69f0ae;
-  border-radius: 2px;
-  border: solid 1px rgba(255, 255, 255, .12);
+  border-radius: 1px;
 }
 
 .mat-mdc-card-avatar {
   margin-bottom: 0;
 }
 
+.divider-header {
+  background-color: #69f0ae;
+}
