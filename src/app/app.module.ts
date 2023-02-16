@@ -20,6 +20,9 @@ import {DashboardComponent} from './features/dashboard/dashboard.component';
 import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormComponent } from './common/components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,25 +31,29 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     ToolbarComponent,
     SidebarComponent,
     DashboardComponent,
+    FormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    NoopAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatIconModule,
-    MatCardModule,
-    MatListModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatInputModule,
-    HttpClientModule,
-    MatProgressBarModule,
-    BrowserAnimationsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        NoopAnimationsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatIconModule,
+        MatCardModule,
+        MatListModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatInputModule,
+        HttpClientModule,
+        MatProgressBarModule,
+        BrowserAnimationsModule,
+        MatCheckboxModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

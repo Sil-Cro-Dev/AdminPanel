@@ -1,7 +1,16 @@
 <app-list
-  fxFlex="30" fxFlex.lt-lg="40" fxFlex.lt-md="100"
+  fxFlex="35" fxFlex.lt-lg="40" fxFlex.lt-md="100"
+  class="m8"
   [title]="'Rubrica'"
   [columnToShow]="['cognome', 'nome', 'numero']"
   [dataSource]="dataSource"
   [hasImage]="'avatar'"
+  [hasCheckbox]="''"
 ></app-list>
+
+<app-form
+  fxFlex="35" fxFlex.lt-lg="40" fxFlex.lt-md="100"
+  class="m8"
+  [title]="'AGGIUNGI A RUBRICA'">
+
+</app-form>

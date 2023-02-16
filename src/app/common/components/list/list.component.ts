@@ -10,6 +10,7 @@ export class ListComponent implements OnInit {
   @Input() columnToShow!: string[];
   @Input() dataSource: any;
   @Input() hasImage: string | undefined;
+  @Input() hasCheckbox: string | undefined;
 
   constructor() {
   }

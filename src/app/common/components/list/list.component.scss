@@ -6,9 +6,17 @@ mat-card-header {
   background: #303030;
 }
 
+mat-card-content{
+  padding: 16px;
+}
+
 mat-progress-bar {
   height: 3px;
   opacity: 0.5;
+}
+
+.hover:hover {
+  background: rgba(105, 240, 174, 0.2);
 }
 
 .card-list {
