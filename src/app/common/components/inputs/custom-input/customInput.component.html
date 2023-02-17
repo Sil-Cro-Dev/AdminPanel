@@ -1,0 +1,7 @@
+<div [formGroup]="form" class="fill">
+  <mat-form-field color="accent" class="fill">
+    <mat-label>{{fieldName}}</mat-label>
+    <input matInput formControlName="{{fieldName}}">
+    <mat-error>Campo obbligatorio</mat-error>
+  </mat-form-field>
+</div>

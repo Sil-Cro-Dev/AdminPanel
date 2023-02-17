@@ -4,6 +4,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -30,13 +31,29 @@ body {
   width: 25%;
 }
 
-.p8{
+.w40{
+  width: 40%;
+}
+.w45{
+  width: 45%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.p8 {
   padding: 8px;
 }
 
-.p16{
+.p16 {
   padding: 16px;
 }
-.m8{
+
+.m8 {
   margin: 8px;
 }

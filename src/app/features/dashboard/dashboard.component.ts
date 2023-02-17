@@ -17,5 +17,10 @@ export class DashboardComponent implements OnInit {
     this.folksService.getFolks().subscribe(res => this.dataSource = res)
   }
 
+  detail = {
+    nome: "silvano",
+    cognome: "paloni",
+    numero: "3216548"
+  }
 
 }

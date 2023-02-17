@@ -1,24 +1,41 @@
-import {Component, Input} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms"
-import {ErrorStateMatcher} from "@angular/material/core";
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import {Component, Input, OnInit} from '@angular/core';
+import {FormBuilder} from "@angular/forms"
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
+
   @Input() title!: string;
+  @Input() detail: any;
 
-  numberFormControl = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
+  constructor(private formBuilder: FormBuilder) {
+  }
 
-  matcher = new MyErrorStateMatcher();
+  ngOnInit(): void {
+  }
+
+
 }
+
+// myForm: FormGroup;
+//
+// constructor(private formBuilder: FormBuilder) { }
+//
+// ngOnInit() {
+//   const formControls = {};
+//   this.formFields.forEach(field => {
+//     formControls[field.name] = [field.value, field.validation];
+//   });
+//   this.myForm = this.formBuilder.group(formControls);
+// }
+
+
+// formFields = [
+//   { type: 'text', label: 'Nome', name: 'nome', value: '', validation: [Validators.required, Validators.minLength(3)] },
+//   { type: 'email', label: 'Email', name: 'email', value: '', validation: [Validators.required, Validators.email] },
+//   { type: 'password', label: 'Password', name: 'password', value: '', validation: [Validators.required, Validators.minLength(8)] },
+//   // Aggiungi altri campi qui...
+// ];

@@ -23,6 +23,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormComponent } from './common/components/form/form.component';
+import { CustomInputComponent } from './common/components/inputs/custom-input/customInput.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormComponent } from './common/components/form/form.component';
     SidebarComponent,
     DashboardComponent,
     FormComponent,
+    CustomInputComponent,
   ],
     imports: [
         BrowserModule,
