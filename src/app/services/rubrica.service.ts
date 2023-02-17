@@ -20,9 +20,5 @@ export class RubricaService {
     return this.http.get(URL_MOCK + 'rubrica',)
   }
 
-  addFolks(folk: any) {
-    return this.http.post<any>(URL_MOCK + 'rubrica', JSON.stringify(folk), httpOptions);
-  }
-
 
 }

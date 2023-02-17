@@ -1,24 +1,49 @@
-import {Component, Input} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms"
-import {ErrorStateMatcher} from "@angular/material/core";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormField} from "../../../models/formModels";
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent {
+export class FormComponent implements OnInit, OnChanges {
+
   @Input() title!: string;
+  @Input() formFields!: FormField[];
+  @Input() details: any;
 
-  numberFormControl = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
+  form!: FormGroup;
 
-  matcher = new MyErrorStateMatcher();
+  constructor(private formBuilder: FormBuilder) {
+  }
+
+
+  ngOnInit(): void {
+    let formControls: any = {};
+    this.formFields.forEach(field => {
+      formControls[field.name] = [field.value, field.validation];
+    });
+    this.form = this.formBuilder.group(formControls);
+
+    if(this.details) {
+      this.formFields.forEach(field => {
+        this.form.get(field.name)?.setValue(this.details[field.name])
+      });
+    }
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['details'].currentValue) {
+      this.formFields.forEach(field => {
+        this.form.get(field.name)?.setValue(changes['details'].currentValue[field.name])
+      });
+
+    }
+  }
 }
+
+
+
