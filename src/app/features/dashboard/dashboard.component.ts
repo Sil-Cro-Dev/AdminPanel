@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {RubricaService} from "../../services/rubrica.service";
-import {FormField} from "../../models/formModels";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +9,6 @@ import {FormField} from "../../models/formModels";
 export class DashboardComponent implements OnInit {
 
   dataSource: any;
-  detailsToExport: any
-
-  formFields: FormField[] = [
-    {type: 'text', label: 'Nome', name: 'nome', value: ''},
-    {type: 'text', label: 'Cognome', name: 'cognome', value: ''},
-    {type: 'tel', label: 'Numero Telefono', name: 'numero', value: ''},
-  ];
 
   title: string = 'Rubrica';
   columnToShow: string[] = ['cognome', 'nome', 'numero'];
@@ -29,7 +21,4 @@ export class DashboardComponent implements OnInit {
     this.folksService.getFolks().subscribe(res => this.dataSource = res)
   }
 
-  exportDetails($event: any) {
-    this.detailsToExport = $event
-  }
 }

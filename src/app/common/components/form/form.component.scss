@@ -3,6 +3,7 @@ mat-card {
 }
 mat-card-header {
   background: #303030;
+  color: white;
 }
 mat-card-content{
   padding: 16px;
@@ -12,4 +13,7 @@ mat-form-field{
 }
 mat-label{
   color: white;
+}
+mat-divider{
+  background-color: #69f0ae;
 }

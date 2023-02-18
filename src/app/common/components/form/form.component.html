@@ -8,13 +8,14 @@
     <mat-card-content class="card-list">
       <form [formGroup]="form">
         <div *ngFor="let field of formFields ">
-          <mat-form-field color="accent" fxFlex="50" *ngIf="field.type != 'img'">
+          <mat-form-field color="accent">
             <mat-label>{{field.label}}</mat-label>
             <input matInput type="{{field.type}}" [formControlName]="field.name">
             <mat-error>dio-bono</mat-error>
           </mat-form-field>
+          <mat-divider></mat-divider>
         </div>
-        <mat-divider></mat-divider>
+
 
       </form>
     </mat-card-content>

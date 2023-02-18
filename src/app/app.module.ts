@@ -11,11 +11,11 @@ import {MatIconModule} from "@angular/material/icon";
 import {ListComponent} from './common/components/list/list.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
-import {ToolbarComponent} from './common/components/toolbar/toolbar.component';
+import {ToolbarComponent} from './common/components/navigation/toolbar/toolbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {SidebarComponent} from './common/components/sidebar/sidebar.component';
+import {SidebarComponent} from './common/components/navigation/sidebar/sidebar.component';
 import {DashboardComponent} from './features/dashboard/dashboard.component';
 import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
@@ -23,7 +23,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormComponent } from './common/components/form/form.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MatDialogConfig, MatDialogContainer, MatDialogModule} from "@angular/material/dialog";
 import { DialogComponent } from './common/components/dialog/dialog.component';
 
 @NgModule({
@@ -56,7 +56,7 @@ import { DialogComponent } from './common/components/dialog/dialog.component';
         MatCheckboxModule,
         FormsModule,
         ReactiveFormsModule,
-        MatDialogModule
+        MatDialogModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

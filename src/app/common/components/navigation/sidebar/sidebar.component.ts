@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PAGES, Pages} from "../../../routing";
+import {PAGES, Pages} from "../../../../routing";
 
 
 @Component({

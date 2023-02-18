@@ -27,7 +27,7 @@ export class FormComponent implements OnInit, OnChanges {
     });
     this.form = this.formBuilder.group(formControls);
 
-    if(this.details) {
+    if (this.details) {
       this.formFields.forEach(field => {
         this.form.get(field.name)?.setValue(this.details[field.name])
       });
@@ -38,7 +38,8 @@ export class FormComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['details'].currentValue) {
       this.formFields.forEach(field => {
-        this.form.get(field.name)?.setValue(changes['details'].currentValue[field.name])
+        if (this.form)
+          this.form.get(field.name)?.setValue(changes['details'].currentValue[field.name])
       });
 
     }
