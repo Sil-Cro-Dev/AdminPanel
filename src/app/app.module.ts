@@ -25,7 +25,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FormComponent} from './common/components/form/form.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {DialogComponent} from './common/components/dialog/dialog.component';
-import {XychartComponent} from './chart/xychart/xychart.component';
+import {ChartComponent} from "./chart/chart.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import {XychartComponent} from './chart/xychart/xychart.component';
     DashboardComponent,
     FormComponent,
     DialogComponent,
-    XychartComponent,
+    ChartComponent
   ],
     imports: [
         BrowserModule,
