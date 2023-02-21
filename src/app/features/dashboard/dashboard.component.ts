@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RubricaService} from "../../services/rubrica.service";
+import {AmazonScrapingService} from "../../services/amazon-scraping.service";
+import {ProductPrice} from "../../models/Product";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,17 +9,18 @@ import {RubricaService} from "../../services/rubrica.service";
 })
 export class DashboardComponent implements OnInit {
 
-  dataSource: any;
-
-  title: string = 'Rubrica';
-  columnToShow: string[] = ['cognome', 'nome', 'numero'];
-  avatarField: string = 'avatar';
-
-  constructor(private folksService: RubricaService) {
+  constructor(private amaoznScrapingService: AmazonScrapingService) {
   }
 
+  data!: ProductPrice[];
+
   ngOnInit(): void {
-    this.folksService.getFolks().subscribe(res => this.dataSource = res)
+    this.amaoznScrapingService.getProductWithPrices().subscribe(res => {
+      if (res.productPriceSet)
+        this.data = res.productPriceSet
+    })
   }
 
 }
+
+

@@ -22,9 +22,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FormComponent } from './common/components/form/form.component';
-import {MatDialogConfig, MatDialogContainer, MatDialogModule} from "@angular/material/dialog";
-import { DialogComponent } from './common/components/dialog/dialog.component';
+import {FormComponent} from './common/components/form/form.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {DialogComponent} from './common/components/dialog/dialog.component';
+import {XychartComponent} from './chart/xychart/xychart.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DialogComponent } from './common/components/dialog/dialog.component';
     DashboardComponent,
     FormComponent,
     DialogComponent,
+    XychartComponent,
   ],
     imports: [
         BrowserModule,
