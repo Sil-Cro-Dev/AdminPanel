@@ -1,0 +1,16 @@
+mat-card {
+  border: solid 1px rgba(255, 255, 255, .12);
+}
+
+mat-card-header {
+  background: #303030;
+}
+
+mat-card-content{
+  padding: 16px;
+}
+
+mat-progress-bar {
+  height: 3px;
+  opacity: 0.5;
+}

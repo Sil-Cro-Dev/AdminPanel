@@ -1,10 +1,9 @@
-import { Component, Inject, NgZone, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-
-// amCharts imports
-import * as am5 from '@amcharts/amcharts5';
-import * as am5xy from '@amcharts/amcharts5/xy';
-import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
+import {Component, Input, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import {Product, ProductPrice} from "../models/Product";
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import {ChartUtilities} from "../utils/chart-utils";
 
 @Component({
   selector: 'app-chart',
@@ -12,109 +11,65 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
   styleUrls: ['./chart.component.scss']
 })
 
-export class ChartComponent {
-  private root!: am5.Root;
+export class ChartComponent implements OnChanges, OnDestroy {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone) {}
+  @Input() data!: Product;
+  dataChart: ProductPrice[] = [];
 
-  // Run the function only in the browser
-  browserOnly(f: () => void) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.zone.runOutsideAngular(() => {
-        f();
-      });
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["data"] && changes["data"].currentValue) {
+      this.dataChart = this.data.productPriceSet
+      console.log(this.dataChart)
+      this.initChart(false);
     }
   }
 
-  ngAfterViewInit() {
-    // Chart code goes in here
-    this.browserOnly(() => {
-      let root = am5.Root.new("chartdiv");
+  initChart(destroy: boolean) {
+    am4core.useTheme(am4themes_animated);
+    let chart = am4core.create("chartdiv", am4charts.XYChart);
 
-      root.setThemes([am5themes_Animated.new(root)]);
+    if (destroy) {
+      chart.dispose();
+      return;
+    }
 
-      let chart = root.container.children.push(
-        am5xy.XYChart.new(root, {
-          panY: false,
-          layout: root.verticalLayout
-        })
-      );
+    ChartUtilities.getTitle(chart, "Amazon-Scraping-Data")
 
-      // Define data
-      let data = [
-        {
-          category: "Research",
-          value1: 1000,
-          value2: 588
-        },
-        {
-          category: "Marketing",
-          value1: 1200,
-          value2: 1800
-        },
-        {
-          category: "Sales",
-          value1: 850,
-          value2: 1230
-        }
-      ];
 
-      // Create Y-axis
-      let yAxis = chart.yAxes.push(
-        am5xy.ValueAxis.new(root, {
-          renderer: am5xy.AxisRendererY.new(root, {})
-        })
-      );
+    let xAxis = ChartUtilities.getValueOrDateAxisX(chart, "Update Date", true);
+    let yAxis = ChartUtilities.getValueOrDateAxisY(chart, "Product Price", false);
 
-      // Create X-Axis
-      let xAxis = chart.xAxes.push(
-        am5xy.CategoryAxis.new(root, {
-          renderer: am5xy.AxisRendererX.new(root, {}),
-          categoryField: "category"
-        })
-      );
-      xAxis.data.setAll(data);
 
-      // Create series
-      let series1 = chart.series.push(
-        am5xy.ColumnSeries.new(root, {
-          name: "Series",
-          xAxis: xAxis,
-          yAxis: yAxis,
-          valueYField: "value1",
-          categoryXField: "category"
-        })
-      );
-      series1.data.setAll(data);
+    let series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = "updateDate";
+    series.dataFields.valueY = "productPrice";
+    series.stroke = am4core.color("#69f0ae");
 
-      let series2 = chart.series.push(
-        am5xy.ColumnSeries.new(root, {
-          name: "Series",
-          xAxis: xAxis,
-          yAxis: yAxis,
-          valueYField: "value2",
-          categoryXField: "category"
-        })
-      );
-      series2.data.setAll(data);
+    chart.cursor = new am4charts.XYCursor();
+    chart.data = this.dataChart
 
-      // Add legend
-      let legend = chart.children.push(am5.Legend.new(root, {}));
-      legend.data.setAll(chart.series.values);
+    ChartUtilities.getCursor(chart);
+    ChartUtilities.getLabelBullet(series);
 
-      // Add cursor
-      chart.set("cursor", am5xy.XYCursor.new(root, {}));
-
-      this.root = root;
-    });
   }
 
-  ngOnDestroy() {
-    // Clean up chart when the component is removed
-    this.browserOnly(() => {
-      if (this.root) {
-        this.root.dispose();
-      }
-    });
+  ngOnDestroy(): void {
+    this.initChart(true);
   }
+
+
+  private static getPattern(range: boolean) {
+    var pattern = new am4core.LinePattern();
+    pattern.width = 10;
+    pattern.height = 10;
+    pattern.strokeWidth = 1;
+    if (range) {
+      pattern.rotation = 45;
+    } else {
+      pattern.rotation = -45;
+    }
+    return pattern;
+  }
+
 }
