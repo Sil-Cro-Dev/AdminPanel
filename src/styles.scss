@@ -1,5 +1,9 @@
 //TODO implementare funzionalita per telefoni
 
+@import "styles/mat-option";
+@import "styles/wp";
+
+
 html,
 body {
   height: 100%;
@@ -8,35 +12,4 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow: hidden;
-}
-
-.w5 {
-  width: 5%;
-}
-
-.w10 {
-  width: 10%;
-}
-
-.w15 {
-  width: 15%;
-}
-
-.w20 {
-  width: 20%;
-}
-
-.w25 {
-  width: 25%;
-}
-
-.p8{
-  padding: 8px;
-}
-
-.p16{
-  padding: 16px;
-}
-.m8{
-  margin: 8px;
 }

@@ -16,11 +16,9 @@ export class ChartComponent implements OnChanges, OnDestroy {
   @Input() data!: Product;
   dataChart: ProductPrice[] = [];
 
-
   ngOnChanges(changes: SimpleChanges) {
     if (changes["data"] && changes["data"].currentValue) {
       this.dataChart = this.data.productPriceSet
-      console.log(this.dataChart)
       this.initChart(false);
     }
   }

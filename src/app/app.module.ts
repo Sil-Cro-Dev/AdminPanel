@@ -26,6 +26,8 @@ import {FormComponent} from './common/components/form/form.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {DialogComponent} from './common/components/dialog/dialog.component';
 import {ChartComponent} from "./chart/chart.component";
+import { ChartManagerComponent } from './features/chart-manager/chart-manager.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -36,30 +38,32 @@ import {ChartComponent} from "./chart/chart.component";
     DashboardComponent,
     FormComponent,
     DialogComponent,
-    ChartComponent
+    ChartComponent,
+    ChartManagerComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FlexLayoutModule,
-        NoopAnimationsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatIconModule,
-        MatCardModule,
-        MatListModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatInputModule,
-        HttpClientModule,
-        MatProgressBarModule,
-        BrowserAnimationsModule,
-        MatCheckboxModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatDialogModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+    NoopAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatCardModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatInputModule,
+    HttpClientModule,
+    MatProgressBarModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSelectModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

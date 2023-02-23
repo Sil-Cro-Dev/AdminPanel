@@ -1,20 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {AmazonScrapingService} from "../../services/amazon-scraping.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  constructor(private service: AmazonScrapingService) {
-  }
+export class DashboardComponent {
 
-  data: any;
 
-  ngOnInit() {
-    this.service.getProductWithPrices().subscribe(res => this.data = res);
-  }
 
 
 }

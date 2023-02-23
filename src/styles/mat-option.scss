@@ -1,0 +1,8 @@
+.mdc-list-item__primary-text{
+  height: 25px;
+  overflow: initial;
+  text-overflow: initial;
+}
+.mdc-list-item--selected .mdc-list-item__primary-text, .mdc-list-item--activated .mdc-list-item__primary-text{
+  color: #69f0ae;
+}
