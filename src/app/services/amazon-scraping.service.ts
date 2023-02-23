@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {URL_LOCAL} from "../../assets/Links";
 import {Product} from "../models/Product";
 import {Observable} from "rxjs";
-import {PropertyNameUpgradeData} from "@angular/cdk/schematics";
 
 
 @Injectable({
@@ -16,8 +15,8 @@ export class AmazonScrapingService {
   constructor(private http: HttpClient) {
   }
 
-  getProductWithPrices(): Observable<Product> {
-    return this.http.get<Product>(URL_LOCAL + this.priceUrl + "/1")
+  getProductWithPrices(id: number): Observable<Product> {
+    return this.http.get<Product>(URL_LOCAL + this.priceUrl + "/" + id)
   }
 
   getAllProducts(): Observable<Product[]> {

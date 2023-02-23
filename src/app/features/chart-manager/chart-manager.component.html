@@ -1,7 +1,7 @@
 <div fxFlex="35" fxFlex.lt-lg="40" fxFlex.lt-md="100">
   <mat-card>
     <mat-card-header >
-        <mat-select *ngIf="productSelected" [(value)]="productSelected!.id" placeholder="{{productSelected!.productTitle}}">
+        <mat-select *ngIf="productSelected" [(value)]="productSelected!.id" placeholder="{{productSelected!.productTitle}}" (selectionChange)="changeSelectedProduct($event)">
           <mat-option *ngFor="let product of productList" [value]="product.id">
             {{product.productTitle}}
           </mat-option>
@@ -13,8 +13,8 @@
       <app-chart [data]="data"></app-chart>
     </mat-card-content>
 
-    <mat-card-actions>
-    </mat-card-actions>
+<!--    <mat-card-actions>-->
+<!--    </mat-card-actions>-->
     <mat-card-footer>
       <mat-progress-bar mode="determinate" value="75" color="accent"></mat-progress-bar>
     </mat-card-footer>

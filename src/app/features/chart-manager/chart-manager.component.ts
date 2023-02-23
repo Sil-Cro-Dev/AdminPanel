@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AmazonScrapingService} from "../../services/amazon-scraping.service";
 import {Product} from "../../models/Product";
+import {MatSelectChange} from "@angular/material/select";
 
 @Component({
   selector: 'app-chart-manager',
@@ -16,10 +17,18 @@ export class ChartManagerComponent implements OnInit {
   productSelected?: Product;
 
   ngOnInit() {
-    this.service.getProductWithPrices().subscribe(res => this.data = res);
     this.service.getAllProducts().subscribe(res => {
       this.productList = res
       this.productSelected = res[0]
+      this.service.getProductWithPrices(res[0].id).subscribe(res => this.data = res);
     });
+
+  }
+
+  changeSelectedProduct($event: MatSelectChange) {
+    this.service.getProductWithPrices($event.value).subscribe(res => {
+      this.productSelected = res
+      this.data = res
+    })
   }
 }
